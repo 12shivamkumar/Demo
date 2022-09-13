@@ -4,7 +4,7 @@ echo $1
 declare -a files_list
 files_list=$1
 
-echo files_list
+echo ${files_list}
 
 declare -A schema_list
 declare -A seed_data_list
