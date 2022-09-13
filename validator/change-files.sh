@@ -23,15 +23,15 @@ elif [[ "$i" =~ ^seed_data.*  ]]; then
 fi
 done
 
-echo ${schema_list}
-echo $change_in_db_files
+echo ${schema_list[@]}
 
 change_in_db_files=false
+echo $change_in_db_files
 if [[ ${#schema_list[@]} -gt 0 || ${#seed_data_list[@]} -gt 0 ]]; then
   change_in_db_files=true
 fi
 
-echo ${schema_list}
+echo ${schema_list[@]}
 echo $change_in_db_files
 
 echo "::set-output name=schema_files::" "${schema_list[@]}"
