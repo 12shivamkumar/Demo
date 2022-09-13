@@ -20,8 +20,4 @@ public class Vehicle
     public int getVehicleNo() {
         return vehicleNo;
     }
-
-    public void setVehicleNo(int vehicleNo) {
-        this.vehicleNo = vehicleNo;
-    }
 }
