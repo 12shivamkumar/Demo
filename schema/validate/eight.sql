@@ -1,6 +1,6 @@
-CREATE TABLE employee_meeting(
-  employee_id varchar(10) ,
-  meeting_id int,
-  PRIMARY KEY ( employee_id , meeting_id),
-  INDEX(date, status)
+CREATE TABLE office(
+id tinyint AUTO_INCREMENT,
+office_name varchar(30) NOT NULL,
+location varchar(100) NOT NULL UNIQUE,
+PRIMARY KEY (id)
 );
