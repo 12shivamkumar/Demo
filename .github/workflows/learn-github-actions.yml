@@ -13,3 +13,15 @@ jobs:
           node-version: '14'
       - run: npm install -g bats
       - run: bats -v
+  mysql-validator:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Get Changed-files
+        id: changedFiles
+        run: |
+          changed_files_list=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }})
+          /bin/bash validator/change-files.sh "${changed_files_list}"
