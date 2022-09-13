@@ -25,3 +25,12 @@ jobs:
         run: |
           changed_files_list=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }})
           /bin/bash validator/change-files.sh "${changed_files_list}"
+      - name: Executing DB Queries
+        #If changes are in schema/seed-data then queries will be executed using mysql-execution script
+        run: |
+          if ( ${{steps.changedFiles.outputs.db_file_change_exists}} ); then
+            /bin/bash validator/mysql-execution.sh "${{steps.changedFiles.outputs.schema_files}}" "${{steps.changedFiles.outputs.seed_data_files}}"
+          fi
+            
+            
+            
