@@ -8,20 +8,4 @@ public class Device {
 
     public Device() {
     }
-
-    public String getDeviceName() {
-        return deviceName;
-    }
-
-    public void setDeviceName(String deviceName) {
-        this.deviceName = deviceName;
-    }
-
-    public int getDevicePrice() {
-        return devicePrice;
-    }
-
-    public void setDevicePrice(int devicePrice) {
-        this.devicePrice = devicePrice;
-    }
 }
