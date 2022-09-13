@@ -25,5 +25,3 @@ public class Device {
         this.devicePrice = devicePrice;
     }
 }
-
-
