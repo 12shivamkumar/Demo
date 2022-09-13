@@ -4,7 +4,7 @@ sudo apt-get install libmysql-diff-perl
 
 sudo /etc/init.d/mysql start
 mysql -e 'SET GLOBAL sql_mode = NO_ZERO_DATE;' -uroot -proot
-mysql -e 'CREATE USER 'runner'@'localhost' IDENTIFIED BY '';' -uroot -proot
+mysql -e 'CREATE USER 'runner'@'localhost' IDENTIFIED BY '123';' -uroot -proot
 
 echo $1
 
