@@ -1,6 +1,6 @@
 #!/bin/sh
 ret=0
-
+sudo apt-get install libmysql-diff-perl
 echo $1
 
 echo $2
