@@ -29,7 +29,7 @@ if [[ ${#schema_list[@]} -gt 0 ]]; then
 fi
 
 echo $change_in_db_files
-echo ${schema_list}
+echo ${schema_list[@]}
 
 echo "::set-output name=schema_files::" "${schema_list[@]}"
 echo "::set-output name=db_file_change_exists::$change_in_db_files"
