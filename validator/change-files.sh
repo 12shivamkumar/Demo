@@ -11,10 +11,10 @@ declare -A seed_data_list
 for i in ${files_list[*]}
 do
 if [[ "$i" =~ ^schema.* ]]; then
-  key=$(echo $i | cut -d'/' -f 2-)
+  key=$(echo $i | cut -d'/' -f 1-)
   schema_list["${key}"]=$i
 elif [[ "$i" =~ ^seed_data.*  ]]; then
-  key=$(echo $i | cut -d'/' -f 2-)
+  key=$(echo $i | cut -d'/' -f 1-)
   seed_data_list["${key}"]=$i
   if [[ ! -v schema_list["${key}"] ]]; then
     schema_list["${key}"]="schema/""$key"
