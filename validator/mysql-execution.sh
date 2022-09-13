@@ -8,6 +8,7 @@ echo $2
 for i in $1
    do
    echo "$i"
+   mysql-schema-diff schema/validate/one.sql schema/validate/third.sql
    done
 
 exit $ret
