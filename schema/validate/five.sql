@@ -1,4 +1,4 @@
-CREATE TABLE employee (
+CREATE TABLE employees (
 id varchar(10),
 name varchar(20) NOT NULL,
 email varchar(30) NOT NULL UNIQUE,
