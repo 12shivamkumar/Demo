@@ -12,3 +12,4 @@ created_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (meet_id),
 INDEX (room_id, date_of_meeting, is_available)
 );
+
