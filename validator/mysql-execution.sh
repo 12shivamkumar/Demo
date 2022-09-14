@@ -22,4 +22,5 @@ mysql -e 'DESCRIBE demo.office;' -uroot -proot demo
 mysql -e 'DESCRIBE demo.employees;' -uroot -proot demo
 mysql -e 'DESCRIBE demo.employee_meeting;' -uroot -proot demo
 
+
 exit $ret
