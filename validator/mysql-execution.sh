@@ -8,6 +8,7 @@ mysql -e 'use demo;' -uroot -proot
 for i in $1
    do
    echo "$i"
+   sudo nano $i
    mysql -uroot -proot demo < $i || ret=1
    done
 for i in $2
