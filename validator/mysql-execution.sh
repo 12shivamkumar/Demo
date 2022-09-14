@@ -6,7 +6,7 @@ sudo systemctl start mysql
 echo
 sudo systemctl status mysql
 echo
-
+sudo mysql
 mysql -e 'CREATE USER 'runner'@'localhost' IDENTIFIED BY 'runner123';' -uroot -proot
 mysql -e 'GRANT ALL PRIVILEGES ON *.* TO 'runner'@'localhost' WITH GRANT OPTION;' -uroot -proot
 mysql -e 'FLUSH PRIVILEGES;' -uroot -proot
