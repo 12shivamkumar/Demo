@@ -6,6 +6,9 @@ echo
 
 sudo systemctl status mysql
 
+sudo systemctl start mysql
+
+sudo systemctl status mysql
 
 declare -a value
 value=$2
