@@ -13,7 +13,7 @@ sudo systemctl status mysql
 echo
 
 mysql -e 'SELECT @@datadir;' -uroot -proot
-mysql -e 'CREATE USER 'runner'@'localhost' IDENTIFIED BY 'runner@123';' -uroot -proot
+mysql -e 'CREATE USER 'runner'@'localhost' IDENTIFIED WITH mysql_native_password BY 'runner@123';' -uroot -proot
 
 declare -a value
 value=$2
