@@ -25,6 +25,6 @@ for i in $1
    echo
    echo TEST_SQL_FILE
    cat $i
-   mysql-schema-diff --username=runner --password='runner@123' temp.sql $i | grep -c "DROP"
+   mysql-schema-diff --user=runner --password='runner@123' temp.sql $i | grep -c "DROP"
    done
 exit $ret
