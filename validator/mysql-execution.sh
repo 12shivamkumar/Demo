@@ -5,16 +5,15 @@ declare -a value
 value=$2
 
 echo $value
-echo $2
+
 
 for i in $1
    do
    touch temp.sql
-   git show b56201157c488331d24cae81350a91869a06a24d:$i > temp.sql
+   git show $value:$i > temp.sql
    echo MASTER_SQL_FILE
    cat temp.sql
    echo
    echo TEST_SQL_FILE
    cat $i
-   mysql-schema-diff temp.sql $i
    done
