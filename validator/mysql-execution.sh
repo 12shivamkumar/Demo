@@ -16,10 +16,6 @@ mysql -e 'SELECT @@datadir;' -uroot -proot
 
 mysql -e 'Select user from mysql.user;' -uroot -proot
 
-mysql -e 'CREATE USER 'runner'@'localhost' IDENTIFIED WITH mysql_native_password BY 'runner@123';' -uroot -proot
-
-mysql -e 'Select user from mysql.user;' -uroot -proot
-
 
 declare -a value
 value=$2
@@ -38,6 +34,6 @@ for i in $1
    echo TEST_SQL_FILE
    cat $i
    echo
-   mysql-schema-diff temp.sql $i | grep -c "DROP"
+   mysql-schema-diff --user=root --password=root temp.sql $i | grep -c "DROP"
    done
 exit $ret
