@@ -1,5 +1,12 @@
 #!/bin/sh
 sudo apt-get install libmysql-diff-perl
+
+declare -a value
+value=$2
+
+echo $value
+echo $2
+
 for i in $1
    do
    touch temp.sql
