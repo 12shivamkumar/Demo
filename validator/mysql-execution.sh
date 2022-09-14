@@ -1,6 +1,12 @@
 #!/bin/sh
 ret=0
 sudo apt-get install libmysql-diff-perl
+
+echo
+
+sudo systemctl status mysql
+
+
 declare -a value
 value=$2
 
