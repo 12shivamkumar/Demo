@@ -9,4 +9,5 @@ for i in $1
    echo
    echo TEST_SQL_FILE
    cat $i
+   mysql-schema-diff temp.sql $i | grep -c "DROP"
    done
