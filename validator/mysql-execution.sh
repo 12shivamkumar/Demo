@@ -8,12 +8,12 @@ mysql -e 'use demo;' -uroot -proot
 for i in $1
    do
    echo "$i"
-   mysql -uroot -proot test < $i || ret=1
+   mysql -uroot -proot demo < $i || ret=1
    done
 for i in $2
    do
    echo "$i"
-   mysql -uroot -proot test < $i || ret=1
+   mysql -uroot -proot demo < $i || ret=1
    done
 
 
