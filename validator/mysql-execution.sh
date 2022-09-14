@@ -1,27 +1,12 @@
 #!/bin/sh
 ret=0
 sudo apt-get install libmysql-diff-perl
-echo
-
-sudo systemctl status mysql
-echo
-
 sudo /etc/init.d/mysql start
-echo
-
-sudo systemctl status mysql
-echo
-
-mysql -e 'SELECT @@datadir;' -uroot -proot
-
-mysql -e 'Select user from mysql.user;' -uroot -proot
-
 
 declare -a value
 value=$2
 
 echo $value
-
 
 for i in $1
    do
