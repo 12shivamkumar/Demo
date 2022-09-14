@@ -7,6 +7,8 @@ mysql -e 'CREATE DATABASE test;' -uroot -proot
 mysql -e 'SHOW DATABASES;' -uroot -proot
 mysql -e 'use test;' -uroot -proot
 mysql -e 'CREATE USER 'runner'@'localhost' IDENTIFIED BY 'runner@123';' -uroot -proot
+mysql -e 'GRANT ALL PRIVILEGES ON *.* TO 'runner'@'localhost' WITH GRANT OPTION;' -uroot -proot
+mysql -e 'FLUSH PRIVILEGES;' -uroot -proot
 
 declare -a value
 value=$2
