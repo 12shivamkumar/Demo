@@ -7,7 +7,7 @@ echo
 sudo systemctl status mysql
 echo
 
-mysql -e 'CREATE USER 'runner'@'localhost' IDENTIFIED BY 'runner@123';' -uroot -proot
+mysql -e 'CREATE USER 'runner'@'localhost' IDENTIFIED BY 'runner123';' -uroot -proot
 mysql -e 'GRANT ALL PRIVILEGES ON *.* TO 'runner'@'localhost' WITH GRANT OPTION;' -uroot -proot
 mysql -e 'FLUSH PRIVILEGES;' -uroot -proot
 
@@ -28,6 +28,6 @@ for i in $1
    echo TEST_SQL_FILE
    cat $i
    echo
-   mysql-schema-diff --password='runner@123' temp.sql $i | grep -c "DROP"
+   mysql-schema-diff --password='runner123' temp.sql $i | grep -c "DROP"
    done
 exit $ret
