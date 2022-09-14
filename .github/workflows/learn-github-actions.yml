@@ -20,7 +20,7 @@ jobs:
         #If changes are in schema/seed-data then queries will be executed using mysql-execution script
         run: |
           if ( ${{steps.changedFiles.outputs.db_file_change_exists}} ); then
-            /bin/bash validator/mysql-execution.sh "${{steps.changedFiles.outputs.schema_files}}" "${{ github.event.pull_request.base.sha }}"
+            /bin/bash validator/mysql-execution.sh "${{steps.changedFiles.outputs.schema_files}}" "${{ github.event.pull_request.head.sha }}"
           fi
             
             
