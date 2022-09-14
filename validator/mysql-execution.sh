@@ -6,6 +6,7 @@ for i in $1
    echo master_branch
    touch temp.sql
    git show b56201157c488331d24cae81350a91869a06a24d:$i > temp.sql
+   cat temp.sql
    echo test_branch
    cat $i
    echo
