@@ -2,8 +2,10 @@
 
 declare -a files_list
 files_list=$1
+files_list_previous=$2
 
 echo ${files_list}
+echo ${files_list_previous}
 
 declare -A schema_list
 for i in ${files_list[*]}
