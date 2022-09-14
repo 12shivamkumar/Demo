@@ -3,7 +3,9 @@ ret=0
 for i in $1
    do
    echo "$i"
-   git diff master:$i test:$i
+   echo master
+   git show master:$1
+   echo test
    cat $i
    done
 
