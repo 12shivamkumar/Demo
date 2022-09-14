@@ -7,9 +7,10 @@ echo
 sudo systemctl status mysql
 echo
 
-mysql -e 'CREATE USER 'runner'@'localhost' IDENTIFIED BY 'runner123';' -uroot -p'Shivam@123'
-mysql -e 'GRANT ALL PRIVILEGES ON *.* TO 'runner'@'localhost' WITH GRANT OPTION;' -u root -p'Shivam@123'
-mysql -e 'FLUSH PRIVILEGES;' -u root -p'Shivam@123'
+sudo mysql -uroot -pShivam@123
+mysql -e 'CREATE USER 'runner'@'localhost' IDENTIFIED BY 'runner123';' -uroot -pShivam@123
+mysql -e 'GRANT ALL PRIVILEGES ON *.* TO 'runner'@'localhost' WITH GRANT OPTION;' -uroot -pShivam@123
+mysql -e 'FLUSH PRIVILEGES;' -uroot -pShivam@123
 
 declare -a value
 value=$2
@@ -28,6 +29,6 @@ for i in $1
    echo TEST_SQL_FILE
    cat $i
    echo
-   mysql-schema-diff temp.sql $i -u runner -p'runner123' | grep -c "DROP"
+   mysql-schema-diff  --user=runner, --password=runner123 temp.sql $i | grep -c "DROP"
    done
 exit $ret
