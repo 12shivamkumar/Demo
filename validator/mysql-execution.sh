@@ -12,6 +12,8 @@ echo
 sudo systemctl status mysql
 echo
 
+mysql -e 'SELECT @@datadir;' -uroot -proot
+
 declare -a value
 value=$2
 
