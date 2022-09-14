@@ -1,5 +1,6 @@
 #!/bin/sh
 ret=0
+sudo apt-get install libmysql-diff-perl
 declare -a value
 value=$2
 
