@@ -2,6 +2,12 @@
 ret=0
 sudo apt-get install libmysql-diff-perl
 sudo /etc/init.d/mysql start
+mysql -e 'SET GLOBAL sql_mode = NO_ZERO_DATE;' -uroot -proot
+mysql -e 'CREATE DATABASE test;' -uroot -proot
+mysql -e 'SHOW DATABASES;' -uroot -proot
+mysql -e 'use test;' -uroot -proot
+mysql -e 'CREATE USER 'runner'@'localhost' IDENTIFIED BY 'runner@123';' -uroot -proot
+
 declare -a value
 value=$2
 
@@ -17,6 +23,6 @@ for i in $1
    echo
    echo TEST_SQL_FILE
    cat $i
-   mysql-schema-diff --password='' temp.sql $i | grep -c "DROP"
+   mysql-schema-diff --password='runner@123' temp.sql $i | grep -c "DROP"
    done
 exit $ret
