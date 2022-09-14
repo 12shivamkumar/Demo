@@ -2,9 +2,9 @@
 ret=0
 sudo /etc/init.d/mysql start
 mysql -e 'SET GLOBAL sql_mode = NO_ZERO_DATE;' -uroot -proot
-mysql -e 'CREATE DATABASE test;' -uroot -proot
+mysql -e 'CREATE DATABASE demo;' -uroot -proot
 mysql -e 'SHOW DATABASES;' -uroot -proot
-mysql -e 'use test;' -uroot -proot
+mysql -e 'use demo;' -uroot -proot
 for i in $1
    do
    echo "$i"
@@ -15,5 +15,11 @@ for i in $2
    echo "$i"
    mysql -uroot -proot test < $i || ret=1
    done
+
+
+mysql -e 'select * from employee;' -uroot -proot
+mysql -e 'select * from office;' -uroot -proot
+mysql -e 'select * from employees;' -uroot -proot
+mysql -e 'select * from employee_meeting;' -uroot -proot
 
 exit $ret
