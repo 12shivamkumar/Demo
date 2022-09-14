@@ -1,4 +1,5 @@
 #!/bin/sh
+sudo apt-get install libmysql-diff-perl
 for i in $1
    do
    echo "$i"
