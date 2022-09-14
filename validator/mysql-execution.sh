@@ -9,7 +9,7 @@ echo $value
 for i in $1
    do
    touch temp.sql
-   git show $value:$i > temp.sql
+   git show $value~:$i > temp.sql
    echo MASTER_SQL_FILE
    cat temp.sql
    echo
