@@ -22,11 +22,7 @@ for i in $1
    cat $i
    echo
    mysql-schema-diff --user=root --password=root temp.sql $i | grep -c "DROP"
-   drop_count=1
-   if [ drop_count ]
-   then
-     changed_files=($i)
-   fi
+   changed_files=($i)
    done
 
    echo ${changed_files[*]}
