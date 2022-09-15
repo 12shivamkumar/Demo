@@ -11,7 +11,7 @@ echo $value
 declare -a changed_files
 
 for i in $1
-   do
+do
    touch temp.sql
    echo $value~
    git show $value~:$i > temp.sql
@@ -23,7 +23,7 @@ for i in $1
    echo
    mysql-schema-diff --user=root --password=root temp.sql $i | grep -c "DROP"
    changed_files=($i)
-   done
+done
 
-   echo ${changed_files[*]}
+echo ${changed_files[@]}
 exit $ret
