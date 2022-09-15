@@ -36,8 +36,7 @@ done
 
 echo ${changed_files[@]}
 
-if [[ ${#changed_files[@]} -gt 0} ]]
-then
+if [[ ${#changed_files[@]} -gt 0  ]]; then
   ret=1
 fi
 
