@@ -35,4 +35,8 @@ do
 done
 
 echo ${changed_files[@]}
+
+if [[ ${#changed_files[@]} -gt 0} ]]
+  ret=1
+
 exit $ret
