@@ -27,6 +27,7 @@ do
 
    if [[ $val>0 ]]
    then
+     echo "result :"
      echo $val
      key=$(echo $i | cut -d'/' -f 2-)
      changed_files["${key}"]=$i
