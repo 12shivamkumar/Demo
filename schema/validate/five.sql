@@ -3,6 +3,7 @@ CREATE TABLE employee_meeting(
   meeting_id int,
   status varchar(10) NOT NULL,
   date date NOT NULL,
+  location varchar(100) NOT NULL UNIQUE,
   PRIMARY KEY ( employee_id , meeting_id),
   INDEX(date, status)
 );
