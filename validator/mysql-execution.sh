@@ -20,8 +20,10 @@ for i in $1
    cat $i
    echo
    declare -a drop_count
-   mysql-schema-diff --user=root --password=root temp.sql $i | grep -c 'DROP' > drop_count
-   echo ${drop_count}
+   mysql-schema-diff --user=root --password=root temp.sql $i | grep -c 'DROP'>drop_count
+
+   echo $drop_count
+
    echo
    if [ drop_count ]
    then
