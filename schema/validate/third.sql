@@ -1,5 +1,6 @@
 CREATE TABLE office(
 id tinyint AUTO_INCREMENT,
+name varchar(20) NOT NULL,
 office_name varchar(30) NOT NULL,
 location varchar(100) NOT NULL UNIQUE,
 created_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
