@@ -20,8 +20,10 @@ do
    echo
    echo TEST_SQL_FILE
    cat $i
+   touch temp1.sql
+   mysql-schema-diff --user=root --password=root temp.sql $i > temp1.sql
 
-   val = "$(mysql-schema-diff --user=root --password=root temp.sql $i | grep -c "DROP" )"
+   val="$(grep -c "DROP" temp1.sql)"
 
    if [[ $val>0 ]]
    then
