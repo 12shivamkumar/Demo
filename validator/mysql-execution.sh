@@ -8,6 +8,8 @@ value=$2
 
 echo $value
 
+declare -a changed_files
+
 for i in $1
    do
    touch temp.sql
@@ -19,16 +21,13 @@ for i in $1
    echo TEST_SQL_FILE
    cat $i
    echo
-   mysql-schema-diff --user=root --password=root temp.sql $i | grep -c "DROP" > drop_count
+   mysql-schema-diff --user=root --password=root temp.sql $i | grep -c "DROP"
 
-   echo $drop_count
-
-   echo
    if [ drop_count ]
    then
-     echo MASTER_SQL_FILE
-   else
-     echo TEST_SQL_FILE
+     changed_files=($i)
    fi
    done
+
+   echo ${changed_files[*]}
 exit $ret
