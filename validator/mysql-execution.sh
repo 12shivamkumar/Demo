@@ -21,9 +21,14 @@ do
    echo TEST_SQL_FILE
    cat $i
    echo
-   mysql-schema-diff --user=root --password=root temp.sql $i | grep -c "DROP"
-   key=$(echo $i | cut -d'/' -f 2-)
-   changed_files["${key}"]=$i
+   val = $(mysql-schema-diff --user=root --password=root temp.sql $i | grep -c "DROP")
+
+   if [[ $val>0 ]]
+   then
+     echo $val
+     key=$(echo $i | cut -d'/' -f 2-)
+     changed_files["${key}"]=$i
+   fi
 done
 
 echo ${changed_files[@]}
