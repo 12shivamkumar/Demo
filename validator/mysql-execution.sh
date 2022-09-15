@@ -21,7 +21,7 @@ do
    echo TEST_SQL_FILE
    cat $i
    echo
-   val = $(mysql-schema-diff --user=root --password=root temp.sql $i | grep -c "DROP")
+   val = "$(mysql-schema-diff --user=root --password=root temp.sql $i | grep -c "DROP" )"
 
    if [[ $val>0 ]]
    then
