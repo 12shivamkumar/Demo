@@ -19,6 +19,11 @@ for i in $1
    echo TEST_SQL_FILE
    cat $i
    echo
-   mysql-schema-diff --user=root --password=root temp.sql $i | grep -c 'DROP'
+   drop_count=${mysql-schema-diff --user=root --password=root temp.sql $i | grep -c 'DROP'}
+   if[ drop_count ]
+   then
+     cat temp.sql
+   else
+     cat TEST_SQL_FILE
    done
 exit $ret
