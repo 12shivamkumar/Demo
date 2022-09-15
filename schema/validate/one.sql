@@ -1,6 +1,5 @@
 CREATE TABLE employee (
 id varchar(10),
-name varchar(20) NOT NULL,
 email varchar(30) NOT NULL UNIQUE,
 office_id tinyint,
 is_available boolean NOT NULL DEFAULT TRUE,
