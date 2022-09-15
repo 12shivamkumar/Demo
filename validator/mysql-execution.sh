@@ -8,7 +8,7 @@ value=$2
 
 echo $value
 
-declare -a changed_files
+declare -A changed_files
 
 for i in $1
 do
@@ -22,7 +22,8 @@ do
    cat $i
    echo
    mysql-schema-diff --user=root --password=root temp.sql $i | grep -c "DROP"
-   changed_files=($i)
+   key=$(echo $i | cut -d'/' -f 2-)
+   changed_files["${key}"]=$i
 done
 
 echo ${changed_files[@]}
